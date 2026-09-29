@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蔡承峻 | 韌體 / 軟體工程師</title>
+<meta name="description" content="蔡承峻 — 廣達電腦韌體工程師（嵌入式 Linux BSP），中央大學資工碩士，專長強化學習、C/C++ 與 Python。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb; --surface:#ffffff; --ink:#1c2433; --muted:#5b6578; --line:#e3e6ee;
+  --navy:#2b3548; --accent:#3563e9; --accent-soft:#e8eefd; --chip:#eef1f6;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 8px 24px rgba(20,30,50,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f141c; --surface:#171e29; --ink:#e6eaf2; --muted:#9aa5b8; --line:#273142;
+    --navy:#0b1017; --accent:#7aa2ff; --accent-soft:#1d2a45; --chip:#212b3a;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f141c; --surface:#171e29; --ink:#e6eaf2; --muted:#9aa5b8; --line:#273142;
+  --navy:#0b1017; --accent:#7aa2ff; --accent-soft:#1d2a45; --chip:#212b3a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans TC",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+nav .brand{font-weight:700;color:var(--ink)}
+nav ul{display:flex;gap:22px;list-style:none;font-size:15px}
+nav ul a{color:var(--muted)}
+nav ul a:hover{color:var(--ink);text-decoration:none}
+#themeBtn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;width:34px;height:34px;cursor:pointer;font-size:16px}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:72px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:180px 1fr;gap:44px;align-items:center}
+.avatar{width:180px;height:180px;border-radius:50%;background:linear-gradient(135deg,#4b5d80,#2b3548);display:grid;place-items:center;font-size:56px;font-weight:900;overflow:hidden;border:4px solid rgba(255,255,255,.15)}
+.avatar{position:relative}
+.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero h1{font-size:48px;font-weight:900;letter-spacing:2px;line-height:1.2}
+.hero .role{font-size:20px;letter-spacing:4px;opacity:.85;margin:6px 0 18px}
+.hero p{opacity:.85;max-width:640px}
+.hero .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:8px;font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,.25);color:#fff}
+.btn:hover{background:rgba(255,255,255,.1);text-decoration:none}
+.btn.primary{background:#fff;color:#2b3548;border-color:#fff}
+.btn.primary:hover{background:#e9edf5}
+.btn svg{width:16px;height:16px;fill:currentColor}
+
+/* sections */
+section{padding:64px 0 8px}
+h2{font-size:26px;font-weight:900;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 28px;box-shadow:var(--shadow)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-32px;position:relative}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:26px;font-weight:900;color:var(--accent)}
+.stat span{font-size:14px;color:var(--muted)}
+
+/* timeline */
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.tl-item{position:relative;margin-bottom:20px}
+.tl-item::before{content:"";position:absolute;left:-26px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.tl-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;align-items:baseline}
+.tl-head h3{font-size:19px}
+.date{font-size:14px;color:var(--muted)}
+.org{color:var(--muted);margin-bottom:10px}
+ul.pts{padding-left:20px}
+ul.pts li{margin:4px 0}
+.badge{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:500;margin-left:6px;vertical-align:middle}
+
+/* projects */
+.filters{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.filters button{font:inherit;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.filters button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.proj{display:flex;flex-direction:column}
+.proj h3{font-size:18px;line-height:1.5;margin-bottom:4px}
+.proj .date{margin-bottom:12px}
+.proj ul.pts{font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font-size:12px;padding:3px 9px;border-radius:6px;background:var(--chip);color:var(--muted)}
+.proj.hide{display:none}
+strong.hl{color:var(--accent)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skills h3{font-size:16px;margin-bottom:10px}
+
+/* edu */
+.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.edu h3{font-size:18px}
+.gpa{font-weight:700;color:var(--accent)}
+.edu p{font-size:15px;color:var(--muted)}
+
+footer{margin-top:72px;padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
+
+@media (max-width:760px){
+  nav ul{display:none}
+  .hero{padding:48px 0}
+  .hero .wrap{grid-template-columns:1fr;text-align:center;gap:24px}
+  .avatar{width:140px;height:140px;margin:0 auto;font-size:44px}
+  .hero h1{font-size:38px}
+  .hero p{margin:0 auto}
+  .hero .links{justify-content:center}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .grid,.skills,.edu{grid-template-columns:1fr}
+  .card{padding:22px 20px}
+}
+@media print{nav,#themeBtn,.filters{display:none}.proj.hide{display:flex}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">蔡承峻</span>
+    <ul>
+      <li><a href="#experience">經歷</a></li>
+      <li><a href="#projects">專案</a></li>
+      <li><a href="#skills">技能</a></li>
+      <li><a href="#education">學歷</a></li>
+      <li><a href="#contact">聯絡</a></li>
+    </ul>
+    <button id="themeBtn" aria-label="切換深淺色">◐</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="avatar"><img src="assets/photo.jpg" alt="蔡承峻" onerror="this.remove()"><span>承峻</span></div>
+    <div>
+      <h1>蔡承峻</h1>
+      <div class="role">韌體工程師 / 軟體工程師 / AI 工程師</div>
+      <p>現任廣達電腦韌體工程師，參與嵌入式 Linux BSP 開發（Yocto、Linux / Android kernel driver）。中央資工碩士畢業，研究所期間專注於強化學習，另有推薦系統、影像辨識、Verilog CPU 設計與 8051 嵌入式驅動的實作經驗。熟悉 C/C++ 與 Python，喜歡把問題從應用層一路追到系統底層弄清楚，也重視與團隊的溝通合作。</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:jason19991213@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5z"/></svg>
+          jason19991213@gmail.com</a>
+        <a class="btn" href="https://github.com/jason19991213" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg>
+          GitHub</a>
+        <a class="btn" href="#projects">查看專案 →</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stats">
+    <div class="stat"><b>4.15</b><span>碩士 GPA / 4.3</span></div>
+    <div class="stat"><b>+12.5%</b><span>ARPO 目標達成率</span></div>
+    <div class="stat"><b>+20%</b><span>策略多樣性提升</span></div>
+    <div class="stat"><b>835</b><span>TOEIC 多益</span></div>
+  </div>
+
+  <section id="experience">
+    <h2>工作經歷</h2>
+    <div class="timeline">
+      <div class="tl-item card">
+        <div class="tl-head"><h3>韌體工程師（BSP）<span class="badge">現職</span></h3><span class="date mono">2026/06 – 至今</span></div>
+        <div class="org">廣達電腦 Quanta Computer</div>
+        <ul class="pts">
+          <li>加入 BSP 團隊，負責以 Yocto（kas / BitBake）建置的嵌入式 Linux 部分</li>
+          <li>建置 kernel、device tree 與 rootfs image，並了解 Linux（HLOS）如何與 bootloader、TrustZone、DSP 等 non-HLOS 韌體整合</li>
+          <li>開始參與 Android 與 Linux kernel driver 開發</li>
+          <li>完成公司內部 Git、repo 與 Gerrit code review 教育訓練</li>
+        </ul>
+      </div>
+      <div class="tl-item card">
+        <div class="tl-head"><h3>教學助理</h3><span class="date mono">2023/09 – 2024/01</span></div>
+        <div class="org">國立中央大學　資訊安全導論</div>
+        <ul class="pts">
+          <li>規劃實驗教材，帶學生實作加解密演算法，並模擬 SQL Injection 的攻擊與防護</li>
+          <li>利用 Docker 在伺服器建置隔離的實作環境，讓學生各自連線進行攻防測試</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>專案作品</h2>
+    <div class="filters" role="tablist">
+      <button class="on" data-f="all">全部</button>
+      <button data-f="ai">AI / 軟體</button>
+      <button data-f="fw">韌體 / 硬體</button>
+    </div>
+    <div class="grid">
+      <article class="card proj" data-cat="ai">
+        <h3>基於自適應過濾強化學習的多樣化策略開發</h3>
+        <div class="date mono">2024/08 – 2025/06　·　碩士研究</div>
+        <ul class="pts">
+          <li>提出 <b>ARPO</b>（Adaptive Reward-switching Policy Optimization），一種基於自適應閾值的軌跡過濾方法，將目標達成率提升 <strong class="hl">12.5%</strong></li>
+          <li>結合 <b>PPO</b> 與 <b>Actor-Critic</b> 演算法開發多策略 Agent 框架，在動態環境中將策略多樣性提升超過 <strong class="hl">20%</strong></li>
+        </ul>
+        <div class="tags"><span class="tag">TensorFlow</span><span class="tag">Python</span><span class="tag">強化學習</span></div>
+      </article>
+      <article class="card proj" data-cat="ai">
+        <h3>音樂推薦系統開發</h3>
+        <div class="date mono">2023/11 – 2024/01　·　Kaggle</div>
+        <ul class="pts">
+          <li>針對 Kaggle 競賽中的海量隱性回饋數據，解決資料高度稀疏與預測精準度的挑戰</li>
+          <li>應用 <b>ALS</b>（Alternating Least Squares）進行矩陣分解建模，並以 SciPy 處理高維稀疏矩陣優化運算效率</li>
+          <li>驗證模型在隱性回饋資料下的推薦效果，測試集達到 <strong class="hl">17% Hit Rate</strong></li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">SciPy</span></div>
+      </article>
+      <article class="card proj" data-cat="ai">
+        <h3>AI 智慧冰箱助手：即時物件偵測系統</h3>
+        <div class="date mono">2022/06 – 2023/01　·　大學專題</div>
+        <ul class="pts">
+          <li>使用 Flutter 建構跨平台 UI 並整合 YOLOv5，達成即時物件偵測與人臉識別</li>
+          <li>利用 OpenCV 開發影像預處理流程，串接 YOLOv5 模型進行即時偵測</li>
+          <li>使用 PHP 與 MySQL 建構後端服務，管理用戶偏好並支援互動歷史紀錄的即時查詢</li>
+        </ul>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">YOLOv5</span><span class="tag">OpenCV</span><span class="tag">MySQL</span></div>
+      </article>
+      <article class="card proj" data-cat="fw">
+        <h3>嵌入式系統：硬體驅動與影像顯示</h3>
+        <div class="date mono">2021/09 – 2022/01　·　微算機實驗</div>
+        <ul class="pts">
+          <li>在 Silicon Labs 8051 開發板實作精確計時功能，並驅動顯示模組達成視覺化輸出</li>
+          <li>配置 Timer/Counter 暫存器產生計時脈衝，並撰寫驅動邏輯操作 LCD 模組顯示自定義圖像</li>
+          <li>結合中斷服務常式（ISR）與按鍵防彈跳處理，讓輸入判讀穩定、畫面即時更新</li>
+        </ul>
+        <div class="tags"><span class="tag">8051 Assembly</span><span class="tag">Silicon Labs IDE</span><span class="tag">ISR</span></div>
+      </article>
+      <article class="card proj" data-cat="fw">
+        <h3>處理器資料路徑與 ALU 架構實作</h3>
+        <div class="date mono">2020/09 – 2021/01　·　計算機組織</div>
+        <ul class="pts">
+          <li>在 Quartus II 環境下，從 ALU 運算核心起步，逐步擴展並驗證至完整的單週期 CPU 資料路徑</li>
+          <li>使用 Verilog 實現具備絕對差值與基礎運算能力的運算單元，管理暫存器堆與控制單元間的同步資料流</li>
+          <li>透過時序分析與功能模擬，確認訊號在每個指令週期內正確穩定</li>
+        </ul>
+        <div class="tags"><span class="tag">Verilog</span><span class="tag">Quartus II</span><span class="tag">CPU 設計</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>專業技能</h2>
+    <div class="skills">
+      <div class="card"><h3>程式語言</h3><div class="tags"><span class="tag">C / C++</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Verilog</span><span class="tag">8051 Assembly</span></div></div>
+      <div class="card"><h3>嵌入式 / 系統</h3><div class="tags"><span class="tag">Yocto (kas / BitBake)</span><span class="tag">Device Tree</span><span class="tag">Linux kernel driver</span><span class="tag">Android kernel driver</span><span class="tag">Docker</span></div></div>
+      <div class="card"><h3>AI / 資料科學</h3><div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Scikit-learn</span><span class="tag">OpenCV</span><span class="tag">Pandas</span></div></div>
+      <div class="card"><h3>開發框架與工具</h3><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Flutter</span><span class="tag">Git</span><span class="tag">repo</span><span class="tag">Gerrit</span><span class="tag">Firebase</span><span class="tag">VS Code</span></div></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>學歷</h2>
+    <div class="edu">
+      <div class="card">
+        <div class="tl-head"><h3>國立中央大學　資訊工程學系 碩士</h3></div>
+        <div class="date mono">2023 – 2025　·　GPA <span class="gpa">4.15 / 4.3</span></div>
+        <p style="margin-top:10px">相關課程：計算機架構、進階分散式系統、資料科學、深度學習</p>
+      </div>
+      <div class="card">
+        <div class="tl-head"><h3>長庚大學　資訊工程學系 學士</h3></div>
+        <div class="date mono">2019 – 2023　·　GPA <span class="gpa">3.78 / 4.0</span></div>
+        <p style="margin-top:10px">相關課程：資料庫系統設計、作業系統、軟體工程、平行程式設計、網頁程式設計、微算機實驗</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>聯絡我</h2>
+    <div class="card" style="text-align:center">
+      <p style="font-size:17px">歡迎來信洽談工作機會或技術交流！</p>
+      <p style="margin-top:8px"><a href="mailto:jason19991213@gmail.com" class="mono">jason19991213@gmail.com</a>　·　台灣，桃園市　·　英文 TOEIC 835</p>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="yr"></span> 蔡承峻 · Built with HTML &amp; CSS · Hosted on GitHub Pages</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+// project filter
+document.querySelectorAll('.filters button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('on', x === b));
+  document.querySelectorAll('.proj').forEach(p => p.classList.toggle('hide', b.dataset.f !== 'all' && p.dataset.cat !== b.dataset.f));
+}));
+// theme toggle
+const root = document.documentElement;
+try { const t = localStorage.getItem('theme'); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  root.dataset.theme = dark ? 'light' : 'dark';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+});
+</script>
+</body>
+</html>
